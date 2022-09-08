@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod 
 metadata:
   name: worker-app-pod
-  labelS:
+  labels:
     name: worker-voting-app
     app: demo-voting-app
 
