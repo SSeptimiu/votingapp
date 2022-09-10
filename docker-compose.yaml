@@ -1,0 +1,20 @@
+redis:
+  image: redis
+db:
+  image: postgres:9.4
+
+vote:
+  image: beret20022/samplevotingapp_vote
+  - ports: 5003:80
+  links: redis
+
+result:
+  image: beret20022/samplevotingapp_result
+  - ports: 5004:80
+  links: db
+  
+worker:
+  image: beret20022/samplevotingapp_worker
+  links:
+  - redis
+  - db
